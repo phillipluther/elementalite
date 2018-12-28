@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# Build Artifacts
+es
+lib
+dist
+css
+
+# Misc
+package-lock.json
