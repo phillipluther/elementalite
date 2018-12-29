@@ -1,1 +1,1 @@
-export default () => console.log('Check: TWO');
+export {default as moduleTwo} from './module-two';
