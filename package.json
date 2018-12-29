@@ -2,8 +2,8 @@
   "name": "elementalite",
   "version": "0.1.0",
   "description": "A personal collection of Web Components.",
-  "main": "js/umd/index.js",
-  "module": "js/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
     "build:js": "node scripts/build-scripts",
     "build:css": "node scripts/build-styles",

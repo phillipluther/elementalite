@@ -11,13 +11,15 @@ const {dirs, runBuildTask} = require('./utils');
 
 async function process(srcFile, min = false) {
     try {
-        let destFile = path.join(dirs.css, path.basename(srcFile));
+        let destFile = min ?
+            path.join(dirs.css, 'min', path.basename(srcFile)) :
+            path.join(dirs.css, path.basename(srcFile));
+
         let plugins = [precss, stylelint];
         let fileContents = await fs.readFile(srcFile, 'utf8');
 
         if (min) {
             plugins.push(cssnano);
-            destFile = destFile.replace(/\.css$/, '.min.css');
         }
 
         let {css, map} = await postcss(plugins).process(fileContents, {
