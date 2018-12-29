@@ -9,6 +9,7 @@
     "build:es": "babel src -d es --source-maps",
     "build:umd": "cross-env BABEL_ENV=umd babel src -d dist --source-maps",
     "build:js": "npm run clean:js && run-p build:cjs build:es build:umd",
+    "build:css": "postcss src/**/*.css --base src -d css --map",
     "clean:js": "rm -rf lib es dist"
   },
   "engines": {
@@ -38,6 +39,12 @@
     "@babel/preset-env": "^7.2.3",
     "babel-preset-minify": "^0.5.0",
     "cross-env": "^5.2.0",
-    "npm-run-all": "^4.1.5"
+    "cssnano": "^4.1.8",
+    "eslint": "^5.11.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.0",
+    "precss": "^4.0.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
