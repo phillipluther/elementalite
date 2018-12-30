@@ -4,11 +4,9 @@ const colors = require('colors/safe');
 
 // common directories, pathed and resolved
 module.exports.dirs = {
-    commonjs: path.resolve('lib'),
     css: path.resolve('css'),
-    es: path.resolve('es'),
-    src: path.resolve('src'),
-    umd: path.resolve('dist')
+    js: path.resolve('js'),
+    src: path.resolve('src')
 };
 
 // standardized logging util providing some pretty(ish) formatting and colors
