@@ -1,16 +1,19 @@
 const path = require('path');
+const colors = require('colors/safe');
 const {promisify} = require('util');
 const glob = promisify(require('glob'));
 const {rollup} = require('rollup');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const postcss = require('rollup-plugin-postcss');
-const {dirs, log, runBuildTask} = require('./utils');
+const {dirs, log, removeRoot, runBuildTask} = require('./utils');
 const precss = require('precss');
 
 async function rollupFile(srcFile) {
-    log.out(`Building ${srcFile}`);
-
     try {
+        let outputFile = path.join(dirs.js, path.basename(srcFile));
+
+        log.out(colors.gray('Building from ') + removeRoot(srcFile));
+
         let bundle = await rollup({
             input: path.join(srcFile),
             plugins: [
@@ -25,7 +28,7 @@ async function rollupFile(srcFile) {
         });
 
         bundle.write({
-            file: path.join(dirs.js, path.basename(srcFile)),
+            file: outputFile,
             format: 'es'
         });
 
@@ -36,11 +39,11 @@ async function rollupFile(srcFile) {
 
 async function build() {
     try {
-        let files = await glob('src/**/!(*index).js');
+        let files = await glob('src/**/*.js');
         let i, n;
 
         for (i = 0, n = files.length; i < n; i++) {
-            rollupFile(files[i]);
+            rollupFile(path.resolve(files[i]));
         }
 
     } catch(err) {

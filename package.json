@@ -2,8 +2,7 @@
   "name": "elementalite",
   "version": "0.1.0",
   "description": "A personal collection of Web Components.",
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "main": "js/elementalite.js",
   "scripts": {
     "build": "rm -rf css js && node scripts/build",
     "lint": "eslint scripts && eslint src"

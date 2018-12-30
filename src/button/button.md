@@ -5,5 +5,5 @@ The classic clickable element with support for primary, secondary, large, small,
 ## Usage
 
 ```html
-<button is="el-button">Click Me</button>
+<button is="lite-button">Click Me</button>
 ```
