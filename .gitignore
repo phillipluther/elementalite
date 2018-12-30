@@ -61,6 +61,7 @@ typings/
 .next
 
 # Build Artifacts
+js
 es
 lib
 dist
