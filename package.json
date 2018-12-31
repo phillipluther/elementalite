@@ -2,10 +2,14 @@
   "name": "elementalite",
   "version": "0.1.0",
   "description": "A personal collection of Web Components.",
-  "main": "js/elementalite.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
-    "build": "rm -rf css js && node scripts/build",
-    "lint": "eslint scripts && eslint src"
+    "build:commonjs": "BABEL_ENV=commonjs babel src -d lib",
+    "build:es": "babel src -d es",
+    "build": "npm run clean && run-p build:commonjs build:es",
+    "clean": "rm -rf es lib",
+    "lint": "eslint src"
   },
   "engines": {
     "node": ">=7.6.0"
@@ -28,12 +32,11 @@
   },
   "homepage": "https://github.com/phillipluther/elementalite#readme",
   "devDependencies": {
-    "colors": "^1.3.3",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
     "eslint": "^5.11.1",
-    "glob": "^7.1.3",
-    "precss": "^4.0.0",
-    "rollup": "^1.0.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-postcss": "^1.6.3"
+    "npm-run-all": "^4.1.5"
   }
 }
