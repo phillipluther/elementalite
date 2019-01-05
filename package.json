@@ -1,5 +1,5 @@
 {
-  "name": "elementalite",
+  "name": "elementalite-aborted",
   "version": "0.1.0",
   "description": "A personal collection of Web Components.",
   "main": "lib/index.js",
@@ -11,12 +11,13 @@
     "clean": "rm -rf es lib",
     "lint": "eslint src"
   },
+  "private": true,
   "engines": {
     "node": ">=7.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phillipluther/elementalite.git"
+    "url": "git+https://github.com/phillipluther/elementalite-aborted.git"
   },
   "keywords": [
     "web",
@@ -27,10 +28,6 @@
   ],
   "author": "Phillip Luther <dev@phillipluther.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/phillipluther/elementalite/issues"
-  },
-  "homepage": "https://github.com/phillipluther/elementalite#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
